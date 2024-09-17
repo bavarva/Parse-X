@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Parse-like Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212; /* Dark background color */
+            color: #e0e0e0; /* Light text color */
+        }
+
+        /* Header */
+        header {
+            background-color: #1f1f1f; /* Darker background for header */
+            padding: 20px 300px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e0e0e0; /* Light text color */
+        }
+        header img.logo {
+            height: 80px; /* Adjust this value as needed */
+            width: auto;  /* Maintain aspect ratio */
+        }
+
+        header nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: #e0e0e0; /* Light text color */
+            font-size: 16px;
+        }
+       
+         /* Dropdown Menu */
+         .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+            color: #e0e0e0;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        .dropdown-menu {
+            display: block;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #2a2a2a;
+            border: 1px solid #444444;
+            border-radius: 5px;
+            min-width: 150px;
+            z-index: 1;
+            opacity: 0; /* Initially transparent */
+            transform: translateY(-10px); /* Start slightly above */
+            visibility: hidden; /* Hidden by default */
+            transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 15px;
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #444444;
+        }
+
+        /* Show and animate the dropdown on hover */
+        .dropdown:hover .dropdown-menu {
+            opacity: 1; /* Fade in */
+            transform: translateY(0); /* Slide in */
+            visibility: visible; /* Make visible */
+        }
+
+        /* Main Section */
+        .main-section {
+            text-align: center;
+            padding: 65px 20px 80px; /* Adjust padding to fit below header */
+            background-color: #1f1f1f; /* Dark background color for the section */
+            color: #e0e0e0; /* Light text color */
+        }
+        
+        .main-section h1 .gradient-text {
+        /* font-family: alrightRegular; */
+        position: relative;
+        font-size: larger;
+         background: linear-gradient(90deg, #4086d5, #73d7cc, #7facae, #9c8ae1, #3355dc);
+         -webkit-background-clip: text;
+          background-clip: text;
+         color: transparent;
+        }
+
+        /* .words span{
+            opacity: 0;
+            transition: opacity 1s;
+        }
+        .words span:nth-child(1){
+            transition-delay: 0.15s ;
+        }
+        .words span:nth-child(2){
+            transition-delay: 0.9s;
+        }
+        .words span:nth-child(3){
+            transition-delay: 0.3s;
+        }
+        .words span:nth-child(4){
+            transition-delay: 0.05s;
+        }
+        .words span:nth-child(5){
+            transition-delay: 0.6s;
+        }
+        .words span:nth-child(6){
+            transition-delay: 0.75s;
+        }
+        .words:hover span{
+            opacity: 1;
+        } */
+
+
+
+
+        .main-section p {
+            margin-top: 15px;
+            font-size: large;
+            color: #b0b0b0; /* Slightly lighter text color for paragraphs */
+        }
+
+        /* Call to action buttons */
+        .cta-buttons {
+            margin-top: 70px;
+        }
+
+        .cta-buttons a {
+            text-decoration: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 25px;
+            margin: 0 10px;
+            transition: 0.3s ease;
+        }
+
+        .cta-buttons .primary-btn {
+            background-color: #333333; /* Dark button background */
+            color: #e0e0e0; /* Light button text */
+            border: 2px solid #444444; /* Slightly lighter border */
+        }
+
+        .cta-buttons .primary-btn:hover {
+            background-color: #444444; /* Lighter button background on hover */
+        }
+
+        .cta-buttons .secondary-btn {
+            background-color: #1e1e1e; /* Match background color */
+            color: #e0e0e0; /* Light button text */
+            border: 2px solid #e0e0e0; /* Light border color */
+        }
+
+        .cta-buttons .secondary-btn:hover {
+            background-color: #333333; /* Darker background on hover */
+            color: #ffffff; /* Lighter text color on hover */
+        }
+
+        /* Illustration Section */
+        .illustration {
+            margin-top: 40px;
+
+        }
+        .illustration img{
+            width: 1000px;
+
+        }
+        
+        
+
+        /* Footer */
+        footer {
+            background-color: #1f1f1f; /* Dark background for footer */
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        footer p {
+            color: #b0b0b0; /* Lighter text color for footer */
+            font-size: 14px;
+        }
+
+        @media (min-width: 768px) {
+            .main-section h1 {
+                font-size: 50px;
+            }
+
+            .main-section p {
+                font-size: 20px;
+            }
+
+            .cta-buttons a {
+                font-size: 20px;
+            }
+        }
+
+        .animated-text{
+            font-size: 34px;
+            font-weight: 600;
+            min-width: 280px;
+            margin-top: 30px;
+        }
+        .animated-text span{
+            position:relative;
+        }
+        .animated-text span::before{
+            content: " Parse !";
+            color: #73d7cc;
+            animation: words 17s infinite;
+        }
+        .animated-text span::after{
+            content: "";
+            position: absolute;
+            width: calc(100% + 8px);
+            height: 100%;
+            background-color: #1f1f1f;
+            border-left: 2px solid #73d7cc;
+            right: -8px;
+            animation: cursor .8s infinite, typing 17s steps(14) infinite;
+
+        }
+        @keyframes cursor {
+            to{
+                border-left: 2px solid #73d7cc00;
+            }
+        }
+        @keyframes words {
+            0%,20%{
+                content: " Parse !";
+            }
+            21%,40%{
+                content: " Analyse !";
+            }
+            41%,60%{
+                content: " Secure !";
+            }
+            61%,80%{
+                content: " Extract !";
+            }
+            81%,100%{
+                content: " Investigate !";
+            }
+        }
+        @keyframes typing {
+            10%,15%,30%,35%,50%,55%,70%,75%,90%,95%{
+                width: 0;
+            }
+            5%,25%,40%,45%,60%,65%,80%,85%{
+                width: calc(100% + 8px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="/Users/arnav/Desktop/imgg.jpg" alt="Your Company Logo" class="logo">
+        <nav>
+            <a href="#">Home</a>
+
+              <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Platforms</a>
+                <div class="dropdown-menu">
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">X (Twitter)</a>
+                    <a href="#">Facebook</a>
+
+                </div>
+            </div>
+
+            <a href="#">Reports</a>
+            <a href="#">Settings</a>
+            <a href="#">Profile</a>
+        </nav>
+    </header>
+
+    <!-- Main Section -->
+    <section class="main-section">
+        <div class="words">
+        <h1><span>Fortify</span> 
+            <span>Your</span>
+            <span>Digital </span>
+            <span class="gradient-text">Frontline</span></h1>
+
+        <p>Monitor and analyze online activity to identify potential threats.</p>
+        <p>Stay ahead of security risks with real-time insights and proactive protection.</p>
+        </div>
+        <div class="animated-text">
+           You can<span></span> 
+        </div>
+        <!-- CTA Buttons -->
+        <div class="cta-buttons">
+            <a href="#" class="primary-btn">Login</a>
+            <a href="#" class="secondary-btn">Create a new account</a>
+        </div>
+
+        <!-- Illustration -->
+        <div class="illustration">
+            
+            <img src="/Users/arnav/Desktop/ilu.png" alt="Illustration">
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
