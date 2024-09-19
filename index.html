@@ -43,11 +43,33 @@
         }
 
         header nav a {
-            text-decoration: none;
-            color: #e0e0e0; /* Light text color */
-            font-size: 16px;
-        }
-       
+    text-decoration: none;
+    color: #e0e0e0;
+    font-size: 16px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #73d7cc;
+}
+
+header nav a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #73d7cc;
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+header nav a:hover::after {
+    width: 100%;
+}
+
          /* Dropdown Menu */
          .dropdown {
             position: relative;
@@ -283,7 +305,7 @@
 <body>
     <!-- Header -->
     <header>
-        <img src="imgg.jpg" alt="Your Company Logo" class="logo">
+        <img src="/Users/arnav/Desktop/imgg.jpg" alt="Your Company Logo" class="logo">
         <nav>
             <a href="#">Home</a>
 
@@ -291,8 +313,8 @@
                 <a href="#" class="dropdown-toggle">Platforms</a>
                 <div class="dropdown-menu">
                     <a href="#">Instagram</a>
-                    <a href="http://127.0.0.1:5000/" target="_blank">X (Twitter)</a>
                     <a href="#">Facebook</a>
+                    <a href="http://127.0.0.1:5000/" target="_blank">X (Twitter)</a>
 
                 </div>
             </div>
@@ -326,7 +348,7 @@
         <!-- Illustration -->
         <div class="illustration">
             
-            <img src="ilu.png" alt="Illustration">
+            <img src="/Users/arnav/Desktop/ilu.png" alt="Illustration">
         </div>
     </section>
 
@@ -336,3 +358,4 @@
     </footer>
 </body>
 </html>
+
