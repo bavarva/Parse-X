@@ -7,7 +7,7 @@ from tweepy.errors import Forbidden, NotFound, TweepyException
 app = Flask(__name__)
 
 # Twitter API v2 credentials
-bearer_token = 'AAAAAAAAAAAAAAAAAAAAAM3OvwEAAAAAdeA9CI59%2F81J8PGc0C9hMMl7Ad0%3Du28xF9sNdRdWXFvZZjd3MJHgUL6jK6JMEibZQC7Uk9CukQa450'
+bearer_token = 'AAAAAAAAAAAAAAAAAAAAALgrvwEAAAAADT83EVEnMpkWcRAGhiZai%2FiLMao%3DueWw5BKN9UzgPhv5ZHy0MXfcisRWeQBsAwFlivYS49Q6RgpRYe'
 
 # Tweepy Client for Twitter API v2
 client = tweepy.Client(bearer_token=bearer_token)
@@ -35,13 +35,16 @@ def get_user_data():
         }
 
         # Return user data as a JSON response
-        return jsonify(user_data)
+        return render_template('index2.html', user_data=user_data)
     except Forbidden as e:
-        return f"Error: Access denied for user '{user_id}'. Details: {e}"
+        error_message = f"Error: Access denied for user '{user_id}'. Details: {e}"
+        return render_template('index2.html', error=error_message)
     except NotFound as e:
-        return f"Error: User '{user_id}' not found. Details: {e}"
+        error_message = f"Error: User '{user_id}' not found. Details: {e}"
+        return render_template('index2.html', error=error_message)
     except TweepyException as e:
-        return f"Error: Unable to fetch data for user '{user_id}'. Details: {e}"
+        error_message = f"Error: Unable to fetch data for user '{user_id}'. Details: {e}"
+        return render_template('index2.html', error=error_message)
 
 if __name__ == '__main__':
     app.run(debug=True)
