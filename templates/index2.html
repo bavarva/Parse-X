@@ -27,6 +27,30 @@
             <input type="text" id="user_id" name="user_id" required>
             <input type="submit" value="Fetch Data">
         </form>
+        {% if user_data %}
+        <div class="user-data">
+            <h2>User Information</h2>
+            <p><strong>ID:</strong> {{ user_data.id }}</p>
+            <p><strong>Name:</strong> {{ user_data.name }}</p>
+            <p><strong>Username:</strong> {{ user_data.username }}</p>
+            <p><strong>Description:</strong> {{ user_data.description }}</p>
+            <p><strong>Account Created:</strong> {{ user_data.created_at }}</p>
+            <h3>Public Metrics</h3>
+            <ul>
+                <li><strong>Followers:</strong> {{ user_data.public_metrics.followers_count }}</li>
+                <li><strong>Following:</strong> {{ user_data.public_metrics.following_count }}</li>
+                <li><strong>Tweets:</strong> {{ user_data.public_metrics.tweet_count }}</li>
+                <li><strong>Listed Count:</strong> {{ user_data.public_metrics.listed_count }}</li>
+            </ul>
+        </div>
+        {% endif %}
+
+        <!-- Display error message if any -->
+        {% if error %}
+        <div class="error-message">
+            <p>{{ error }}</p>
+        </div>
+        {% endif %}
     </section>
 
     <!-- Footer -->
