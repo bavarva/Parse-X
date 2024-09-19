@@ -40,13 +40,15 @@ header .logo {
 }
 
 header img.logo {
-    height: 60px;
+    margin-left: 260px;
+    height: 80px;
     width: auto;
 }
 
 header nav {
+    margin-right: 260px;
     display: flex;
-    gap: 20px;
+    gap: 30px;
 }
 
 header nav a {
@@ -88,6 +90,7 @@ header nav a:hover::after {
 .main-section h1 {
     font-size: 50px;
     margin-bottom: 20px;
+    margin-top: 60px;
     background: linear-gradient(90deg, #4086d5, #73d7cc, #7facae, #9c8ae1, #3355dc);
     -webkit-background-clip: text;
     background-clip: text;
@@ -99,7 +102,40 @@ header nav a:hover::after {
     font-size: 20px;
     margin-top: 15px;
     color: #b0b0b0;
-    animation: fadeInUp 2s 0.5s ease-in-out;
+    
+}
+.user-data, .error-message {
+    margin-top: 30px;
+    background-color: #2c2c2c;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.user-data h2, .user-data h3 {
+    color: #73d7cc;
+}
+
+.user-data p, .user-data ul {
+    margin-bottom: 10px;
+    color: #b0b0b0;
+}
+
+.user-data ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.user-data ul li {
+    padding: 5px 0;
+}
+
+.error-message {
+    background-color: #d9534f;
+    color: white;
 }
 
 .cta-buttons {
