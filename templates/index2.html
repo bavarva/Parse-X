@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter User Data Fetcher</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="{{ url_for('static', filename='img/imgg.jpg') }}" alt="Your Company Logo" class="logo">
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Platforms</a>
+            <a href="#">Reports</a>
+            <a href="#">Settings</a>
+            <a href="#">Profile</a>
+        </nav>
+    </header>
+
+    <!-- Main Section -->
+    <section class="main-section">
+        <h1>Twitter User Data Fetcher</h1>
+        <form action="/user" method="post">
+            <label for="user_id">Enter Twitter User ID or Username:</label>
+            <input type="text" id="user_id" name="user_id" required>
+            <input type="submit" value="Fetch Data">
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
